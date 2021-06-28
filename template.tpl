@@ -32,17 +32,15 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 const copyFromDataLayer = require('copyFromDataLayer');
 const setInWindow = require('setInWindow');
 const copyFromWindow = require('copyFromWindow');
+const getTimestampMillis = require('getTimestampMillis');
 const generateRandom = require('generateRandom');
 var eventId = copyFromWindow('_randomPageId');
 if (!eventId) {
-  eventId = generateRandom(100000, 9999999999);
+  eventId = getTimestampMillis() + '.' + generateRandom(100000, 999999);
   setInWindow('_randomPageId', eventId, false);
 }
 
-eventId += "_" + copyFromDataLayer('gtm.uniqueEventId') || '0';
-eventId += '_' + copyFromDataLayer('event') || 'init';
-
-return eventId;
+return eventId + "." + copyFromDataLayer('gtm.uniqueEventId') || '0';
 
 
 ___WEB_PERMISSIONS___
@@ -124,10 +122,6 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "gtm.uniqueEventId"
-              },
-              {
-                "type": 1,
-                "string": "event"
               }
             ]
           }
@@ -149,6 +143,4 @@ scenarios: []
 
 ___NOTES___
 
-Created on 28.6.2021, 21:55:16
-
-
+Created on 28.6.2021, 22:44:29
