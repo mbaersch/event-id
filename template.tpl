@@ -15,7 +15,6 @@ ___INFO___
   "securityGroups": [],
   "displayName": "Event Id",
   "description": "generates a unique event id for all gtm / dataLayer events - based on a random id for every page.",
- "categories": ["UTILITY"],
   "containerContexts": [
     "WEB"
   ]
@@ -24,7 +23,33 @@ ___INFO___
 
 ___TEMPLATE_PARAMETERS___
 
-[]
+[
+  {
+    "type": "CHECKBOX",
+    "name": "useCustomEventCounter",
+    "checkboxText": "Custom Event Counter",
+    "simpleValueType": true,
+    "help": "The result will use gtm.uniqueEventId from the dataLayer to differentiate separate events on the same page. If that does not fit your triggering plan, you can use different event id variables for every event type and add your own counter. \n\nExample: separate event id for a purchase using the transaction id as unique counter."
+  },
+  {
+    "type": "TEXT",
+    "name": "customEventCounter",
+    "displayName": "",
+    "simpleValueType": true,
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ],
+    "enablingConditions": [
+      {
+        "paramName": "useCustomEventCounter",
+        "paramValue": true,
+        "type": "EQUALS"
+      }
+    ]
+  }
+]
 
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
@@ -40,7 +65,9 @@ if (!eventId) {
   setInWindow('_randomPageId', eventId, false);
 }
 
-return eventId + "." + copyFromDataLayer('gtm.uniqueEventId') || '0';
+var uniqueEventCounter = (data.useCustomEventCounter === true) ? data.customEventCounter : copyFromDataLayer('gtm.uniqueEventId') || '0';
+
+return eventId + "." + uniqueEventCounter;
 
 
 ___WEB_PERMISSIONS___
@@ -143,4 +170,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 28.6.2021, 22:44:29
+Created on 22.4.2022, 10:03:29
+
+
