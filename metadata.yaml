@@ -1,4 +1,8 @@
 homepage: "https://www.markus-baersch.de"
 versions:
+  # Latest version
+  - sha: 1b513f75db715689cc7da724c495c311d29b3354
+    changeNotes: added option to use a custom counter.
+  # Older versions
   - sha: f384825270f7755fb92d4c7771c9551a9d562475
     changeNotes: added timestamp to force unique values, omitted event name.
