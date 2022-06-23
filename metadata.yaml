@@ -1,4 +1,5 @@
 homepage: "https://www.markus-baersch.de"
+documentation: "https://github.com/mbaersch/event-id#readme"
 versions:
   # Latest version
   - sha: 1b513f75db715689cc7da724c495c311d29b3354
