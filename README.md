@@ -1,4 +1,4 @@
-# event-id
+# Event Id (event-id)
 Google Tag Manager Custom Variable Template for generating unique event ids.
 
 ## Deduplication for CAPI and Facebook Pixel
