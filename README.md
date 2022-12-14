@@ -3,7 +3,7 @@
 
 Generate unique event ids for deduplication or event tracing.  
 
-[![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-published-green)](https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/event-id)
+[![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-published-green)](https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/event-id) ![Repo Size](https://img.shields.io/github/repo-size/mbaersch/event-id) ![License](https://img.shields.io/github/license/mbaersch/event-id)
 
 ---
 
