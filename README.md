@@ -1,5 +1,11 @@
-# Event Id (event-id)
-Google Tag Manager Custom Variable Template for generating unique event ids.
+# Event Id
+**Custom Variable Template for Google Tag Manager**
+
+Generate unique event ids for deduplication or event tracing.  
+
+[![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-published-green)](https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/event-id)
+
+---
 
 ## Deduplication for CAPI and Facebook Pixel
 The template can be used to create a uique event id at every event-push to the dataLayer in Google Tag Manager. Use the variable for deduplication of FB hits from browser. 
